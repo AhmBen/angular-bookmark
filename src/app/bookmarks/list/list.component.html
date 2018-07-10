@@ -1,0 +1,11 @@
+  <mat-list>
+    <mat-list-item *ngFor="let bm of bookmarks">
+      <div matLine>{{bm.title}}</div>
+      <mat-chip-list matLine>
+        <mat-chip selected color="primary" *ngFor="let tag of bm.tags">
+            <a routerLink="/tag/{{tag.id}}">{{tag.label}}</a> 
+        </mat-chip>
+      </mat-chip-list>
+    </mat-list-item>
+  </mat-list>
+

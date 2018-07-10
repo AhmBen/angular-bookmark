@@ -1,0 +1,9 @@
+<h1>{{tag.label}}</h1>
+
+<mat-list>
+  <mat-list-item *ngFor="let bm of tag.bookmarks">
+    <ul matLine>
+      <li>{{bm.title}}</li>
+    </ul>
+  </mat-list-item>
+</mat-list>

@@ -1,0 +1,38 @@
+<div *ngIf="tag.id; else loggedOut">
+  <h1>Mise à jour Tag</h1>
+</div>
+  <ng-template #loggedOut>
+      <h1>Création Tag</h1>
+  </ng-template>
+
+
+<form *ngIf="tag" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput name="label" placeholder="Saisir un label" [(ngModel)]="tag.label" />
+  </mat-form-field>
+  <button class = "btn waves-effect waves-light blue">Envoyez<i class = "material-icons right">send</i></button>
+</form>
+
+
+
+<!--
+<div class = "row">
+    <form class = "col s6">      
+       <div class = "row">
+          <div class = "input-field col s12">
+
+            <ng-container *ngIf="tag; else tagLabel">
+              <input placeholder="Label" id="label" type="text"  class="validate" value="{{tag.label}}">
+            </ng-container>
+            <ng-template #tagLabel>
+                <input placeholder="Saisir un nom pour le Tag" id="label" type="text"  class="validate" value="">
+            </ng-template>
+
+             <label for = "label">Label</label>
+             <button class = "btn waves-effect waves-light blue" type = "submit" (click)="updateTag(tag.label)">Envoyez
+               <i class = "material-icons right">send</i></button>
+          </div>
+       </div>        
+    </form>       
+ </div>
+-->
