@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TagService } from '../../tag.service';
 import { Tag } from '../../core/tag';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ export class TagEditComponent implements OnInit {
 
   tag: Tag = null;
 
-  constructor(private tagService: TagService, private route: ActivatedRoute) { }
+  constructor(private tagService: TagService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');  // Ces 2 lignes sont identiques ???
@@ -34,10 +34,22 @@ export class TagEditComponent implements OnInit {
   onSubmit() {
     if (this.tag.id) {
       // Mode edition
-      this.tagService.update(this.tag).subscribe ( (tag: Tag) => {this.tag = tag; } ) ;
+      this.tagService.update(this.tag).subscribe ( 
+                                                    (tag: Tag) => {
+                                                                    this.tag = tag;
+                                                                    // Redirection vers l'url liste, besoin de Router
+                                                                    this.router.navigateByUrl ('/tags/list');
+                                                                  }
+                                                  ) ;
     } else {
       // Mode creation
-      this.tagService.create(this.tag).subscribe ( (tag: Tag) => {this.tag = tag; } ) ;
+      this.tagService.create(this.tag).subscribe (
+                                                    (tag: Tag) => {
+                                                                    this.tag = tag;
+                                                                   // Redirection vers l'url liste, besoin de Router
+                                                                    this.router.navigateByUrl ('/tags/list');
+                                                                  }
+                                                  ) ;
     }
   }
 
