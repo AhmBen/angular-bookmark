@@ -27,7 +27,7 @@ export class TagService {
   }
 
   public create(tag: Tag): Observable<Tag> {
-    const authoringTag: Tag = { ...tag, author: '5b431c27e523050014867ee9'}; // ID de l'auteur (crée sur PostMan)
+    const authoringTag: Tag = { ...tag, author: localStorage.profileId || '5b431c27e523050014867ee9'}; // ID de l'auteur (crée sur PostMan)
     return this.httpClient.post<Tag>(this.API_URL, authoringTag);
   }
 

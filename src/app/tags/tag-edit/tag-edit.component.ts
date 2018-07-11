@@ -34,7 +34,7 @@ export class TagEditComponent implements OnInit {
   onSubmit() {
     if (this.tag.id) {
       // Mode edition
-      this.tagService.update(this.tag).subscribe ( 
+      this.tagService.update(this.tag).subscribe (
                                                     (tag: Tag) => {
                                                                     this.tag = tag;
                                                                     // Redirection vers l'url liste, besoin de Router

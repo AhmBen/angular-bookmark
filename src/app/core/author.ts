@@ -3,10 +3,10 @@ import { Tag } from './tag';
 
 export interface Author {
 
-    id: string;
+    id?: string;
     firstName: string;
     lastName: string;
-    avatar: string;
+    avatar?: string;
     tags?: Tag[];
     bookmarks?: Bookmark[];
 }

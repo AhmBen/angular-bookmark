@@ -11,7 +11,7 @@
     <tbody>
       <tr *ngFor="let tag of tags">
         <ng-container *ngIf="tag">
-          <td>{{tag.label}}</td>
+          <td><i>{{tag.label}}</i><br />{{tag.author.firstName}}<br />{{tag.author.lastName}}</td>
           <td><mat-icon class="pointer" routerLink="/tag/edit/{{tag.id}}">edit</mat-icon></td>
           <td><mat-icon class="pointer" (click)="delete(tag.id)">delete</mat-icon></td>
         </ng-container>

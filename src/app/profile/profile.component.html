@@ -1,3 +1,9 @@
-<p>
-  profile works!
-</p>
+<form *ngIf="author" (click)="create(author)">
+  <mat-form-field>
+    <input matInput name="label" placeholder="Saisir un nom" [(ngModel)]="author.lastName" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="label" placeholder="Saisir un prénom" [(ngModel)]="author.firstName" />
+  </mat-form-field>
+  <button class = "btn waves-effect waves-light blue">Envoyez<i class = "material-icons right">send</i></button>
+</form>
